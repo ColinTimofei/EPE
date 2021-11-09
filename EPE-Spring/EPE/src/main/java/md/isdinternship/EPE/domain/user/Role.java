@@ -1,4 +1,4 @@
-package com.example.EPE.entity;
+package md.isdinternship.EPE.domain.user;
 
 import lombok.Data;
 

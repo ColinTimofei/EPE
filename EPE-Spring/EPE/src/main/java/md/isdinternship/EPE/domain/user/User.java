@@ -1,4 +1,4 @@
-package com.example.EPE.entity;
+package md.isdinternship.EPE.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -49,9 +49,10 @@ public class User {
     @Column(columnDefinition = "text")
     private String bio;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
-    @PrimaryKeyJoinColumn
-    private Image photo;
+    // this one is required !!!
+//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+//    @PrimaryKeyJoinColumn
+//    private Image photo;
 
     @Column(nullable = false)
     private String password;
@@ -102,7 +103,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.job = job;
         this.bio = bio;
-        this.photo = photo;
+//        this.photo = photo;
         this.password = password;
         this.role = role;
         this.teamLeaderId = teamLeaderId;

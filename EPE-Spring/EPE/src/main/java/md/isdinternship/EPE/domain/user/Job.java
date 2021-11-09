@@ -1,10 +1,11 @@
-package com.example.EPE.entity;
+package md.isdinternship.EPE.domain.user;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 public class Job {
 
