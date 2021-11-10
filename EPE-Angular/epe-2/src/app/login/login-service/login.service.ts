@@ -1,5 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {throwError as observableThrowError,  Observable } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+
 
 export interface UserLoginRequest {
   email: string
@@ -22,5 +25,10 @@ export class LoginService {
 
   login(user: UserLoginRequest) {
     return this.http.post(this.url + 'login', user)
+      .pipe(tap(data => {}) , catchError(this.errorHandler))
+  }
+
+  errorHandler(error: HttpErrorResponse){
+    return observableThrowError(error.message || "Server Error");
   }
 }

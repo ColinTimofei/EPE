@@ -10,6 +10,7 @@ export class LoginComponent {
 
   user?: UserLoginRequest
   response?: UserLoginResponse
+  errorMsg?: any
 
   constructor(private loginService: LoginService) { 
     this.createNewEmptyUser()
@@ -26,7 +27,9 @@ export class LoginComponent {
     if(this.user) {
       this.loginService.login(this.user).subscribe(data => {
         this.response = data as UserLoginResponse
-       })
+       }, error => { 
+        console.log(error) 
+        this.errorMsg = error })
     }
   }
 }
