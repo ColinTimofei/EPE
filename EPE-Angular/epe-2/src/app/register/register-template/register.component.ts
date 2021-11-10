@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewUser, RegisterService } from './../register-service/register.service';
+
 
 @Component({
   selector: 'app-register',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  newUser?: NewUser
+
+  // private registerService: RegisterService
+
+  constructor() {
+    this.createNewEmptyUser()
+   }
 
   ngOnInit(): void {
+  }
+
+  createNewEmptyUser() {
+    this.newUser = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      phone: '',
+      password: '',
+      confirm_pasword: ''
+    }
+  }
+
+  registerUser() {
+    console.log(this.newUser)
   }
 
 }
