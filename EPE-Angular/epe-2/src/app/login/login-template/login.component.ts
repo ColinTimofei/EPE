@@ -1,5 +1,5 @@
-import { UserLogin } from './../login-service/login.service';
-import { Component, OnInit } from '@angular/core';
+import { UserLoginRequest, LoginService, UserLoginResponse } from './../login-service/login.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent {
 
-  user?: UserLogin
+  user?: UserLoginRequest
+  response?: UserLoginResponse
 
-  constructor() { 
+  constructor(private loginService: LoginService) { 
     this.createNewEmptyUser()
   }
 
@@ -22,7 +23,10 @@ export class LoginComponent {
   }
 
   login() {
-    console.log(this.user)
+    if(this.user) {
+      this.loginService.login(this.user).subscribe(data => {
+        this.response = data as UserLoginResponse
+       })
+    }
   }
-
 }

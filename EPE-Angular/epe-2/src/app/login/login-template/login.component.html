@@ -41,7 +41,10 @@
             </div>
         </div>
         <div class="button">
-            <button type="submit" [disabled]="loginForm.form.invalid"> Submit </button>
+            <button type="submit" [disabled]="loginForm.form.invalid" (click)="login()"> Submit </button>
+        </div>
+        <div *ngIf="response" class="button">
+            {{ response.token}}
         </div>
     </form>
 </div>
