@@ -21,4 +21,8 @@ export class LoginComponent {
     }
   }
 
+  login() {
+    console.log(this.user)
+  }
+
 }
