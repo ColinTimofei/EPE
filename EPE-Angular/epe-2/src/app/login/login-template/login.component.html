@@ -43,13 +43,15 @@
         <div class="button">
             <button type="submit" [disabled]="loginForm.form.invalid" (click)="login()"> Submit </button>
         </div>
-        <div *ngIf="response" class="button">
-            <p> We have got your credentials :) </p>
-            <p> Now we'll hack your account !!! </p>
-            <p> {{ response.token }}</p>
-        </div>
-        <div *ngIf="errorMsg" class="button">
-            <p> Something went wrong (( </p>
+        <div class="form-response-message">
+            <div *ngIf="response">
+                <img class="form-response-image" src="{{imgPath}}success-icon.png">
+                <span> Login succesful !</span>
+            </div>
+            <div *ngIf="errorMsg">
+                <img class="form-response-image" src="{{imgPath}}warning-icon.png">
+                <span> Something went wrong !</span>
+            </div>
         </div>
     </form>
 </div>

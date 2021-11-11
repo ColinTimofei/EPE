@@ -1,4 +1,5 @@
 export interface UserLoginResponse {
-    email: string
-    token: string
-  }
+    success?: boolean
+    errMessage?: string
+    token?: string
+}

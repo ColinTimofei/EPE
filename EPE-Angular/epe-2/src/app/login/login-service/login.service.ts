@@ -1,18 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import {throwError as observableThrowError,  Observable } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { throwError as observableThrowError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-
-
-export interface UserLoginRequest {
-  email: string
-  password: string
-}
-
-export interface UserLoginResponse {
-  email: string
-  token: string
-}
+import { UserLoginRequest } from '../login-models/user-login-request.interface';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,7 @@
-import { UserLoginRequest, LoginService, UserLoginResponse } from './../login-service/login.service';
+import { LoginService } from './../login-service/login.service';
 import { Component } from '@angular/core';
+import { UserLoginRequest } from '../login-models/user-login-request.interface';
+import { UserLoginResponse } from '../login-models/user-login-response.interface';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  imgPath = '../../../assets/login-images/'
   user?: UserLoginRequest
   response?: UserLoginResponse
   errorMsg?: any
@@ -23,8 +26,14 @@ export class LoginComponent {
     }
   }
 
+  emptyResponseAndErrorMsg() {
+    this.response = undefined
+    this.errorMsg = undefined
+  }
+
   login() {
     if(this.user) {
+      this.emptyResponseAndErrorMsg()
       this.loginService.login(this.user).subscribe(data => {
         this.response = data as UserLoginResponse
        }, error => { 
