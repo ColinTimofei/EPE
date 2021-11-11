@@ -46,6 +46,7 @@
         <div *ngIf="response" class="button">
             <p> We have got your credentials :) </p>
             <p> Now we'll hack your account !!! </p>
+            <p> {{ response.token }}</p>
         </div>
         <div *ngIf="errorMsg" class="button">
             <p> Something went wrong (( </p>

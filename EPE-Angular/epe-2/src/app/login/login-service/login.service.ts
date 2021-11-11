@@ -25,7 +25,7 @@ export class LoginService {
 
   login(user: UserLoginRequest) {
     return this.http.post(this.url + 'login', user)
-      .pipe(tap(data => {}) , catchError(this.errorHandler))
+      .pipe(catchError(this.errorHandler))
   }
 
   errorHandler(error: HttpErrorResponse){
